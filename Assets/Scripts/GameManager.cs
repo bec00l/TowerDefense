@@ -2,28 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : Singleton<GameManager> {
 
-	public static GameManager Instance = null;
-	public GameObject SpawnPoint;
-	public GameObject[] Enemies;
-	public int MaxEnemiesOnScreen; 
-	public int TotalEnemies; 
-	public int EnemiesPerSpawn; 
+	[SerializeField]
+	private GameObject SpawnPoint;
+	[SerializeField]
+	private GameObject[] Enemies;
+	[SerializeField]
+	private int MaxEnemiesOnScreen; 
+	[SerializeField]
+	private int TotalEnemies; 
+	[SerializeField]
+	private int EnemiesPerSpawn; 
 	private int enemiesOnScreen;
 	private int spawnDelay = 2;
 	// Use this for initialization
 
-	void Awake () {
-		if(Instance == null){
-			Instance = this; 
-		}
-		else if (Instance != this){
-			Destroy(gameObject);
-		}
-
-		DontDestroyOnLoad(gameObject);
-	}
 
 	IEnumerator Spawn() {
 		if(EnemiesPerSpawn > 0 && enemiesOnScreen < TotalEnemies){
