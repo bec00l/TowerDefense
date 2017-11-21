@@ -57,9 +57,11 @@
      <Compile Include="Assets\Pluggins\VSCode.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Loader.cs" />
+     <Compile Include="Assets\Scripts\Singleton.cs" />
+     <Compile Include="Assets\Scripts\Tower\TowerBtn.cs" />
+     <Compile Include="Assets\Scripts\TowerManager.cs" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>D:/Unity Projects/TowerDefense/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>D:/UnityProjects/TowerDefense/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="Vuforia.UnityExtensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
