@@ -43,6 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObject: {fileID: 1914932788328684, guid: 230ff722fb78f48438098e26b0da80d0,
     type: 2}
+  dragSprite: {fileID: 21300000, guid: a78a3f1f9859348e8b266f807ae7b6b8, type: 3}
 --- !u!114 &114474148486057848
 MonoBehaviour:
   m_ObjectHideFlags: 1

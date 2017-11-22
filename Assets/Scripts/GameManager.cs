@@ -14,18 +14,17 @@ public class GameManager : Singleton<GameManager> {
 	private int TotalEnemies; 
 	[SerializeField]
 	private int EnemiesPerSpawn; 
-	private int enemiesOnScreen;
 	private int spawnDelay = 2;
+	public List<Enemy> EnemyList = new List<Enemy>();
 	// Use this for initialization
 
 
 	IEnumerator Spawn() {
-		if(EnemiesPerSpawn > 0 && enemiesOnScreen < TotalEnemies){
+		if(EnemiesPerSpawn > 0 && EnemyList.Count < TotalEnemies){
 			for (var i = 0; i < EnemiesPerSpawn; i++){
-				if(enemiesOnScreen < MaxEnemiesOnScreen){
+				if(EnemyList.Count < MaxEnemiesOnScreen){
 					var newEnemy = Instantiate(Enemies[Random.Range(0,3)]) as GameObject;
 					newEnemy.transform.position = SpawnPoint.transform.position;
-					enemiesOnScreen += 1;
 				}
 			}
 		}
@@ -37,14 +36,22 @@ public class GameManager : Singleton<GameManager> {
 		StartCoroutine(Spawn());
 	}
 
-	void SpawnEnemy() {
-		
+	public void RegisterEmeny(Enemy enemy){
+		EnemyList.Add(enemy);
 	}
 
-	public void RemoveEnemyFromScreen() {
-		if(enemiesOnScreen > 0) {
-			enemiesOnScreen -=1; 
-		}
+	public void UnRegisterEmeny(Enemy enemy){
+		EnemyList.Remove(enemy);
+		Destroy(enemy.gameObject);
+	}
+
+
+	public void DestroyAllEnemies() {
+		EnemyList.ForEach(x=> {
+			Destroy(x.gameObject);
+		});
+
+		EnemyList.Clear();
 	}
 	
 	// Update is called once per frame
