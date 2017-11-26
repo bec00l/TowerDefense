@@ -45,10 +45,24 @@ private bool isAttacking = false;
 	public void Attack() {
 		Projectile newProjectile = Instantiate(projectile) as Projectile; 
 		newProjectile.transform.localPosition = transform.localPosition;
+		PlayProjectileSound(newProjectile);
 		if(targetEnemy == null) {
 			Destroy(newProjectile);
 		} else {
 			StartCoroutine(MoveProjectile(newProjectile));
+		}
+	}
+
+	public void PlayProjectileSound(Projectile projectile){
+		if (projectile.ProjectileType == ProjectileType.Arrow) {
+			GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Arrow);
+
+		} else if (projectile.ProjectileType == ProjectileType.Fireball) {
+			GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.FireBall);
+
+		} else if (projectile.ProjectileType == ProjectileType.Rock) {
+			GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Rock);
+
 		}
 	}
 

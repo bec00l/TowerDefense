@@ -162,7 +162,9 @@
 Assets/Pluggins/VSCode.cs
 Assets/Scripts/Enemy.cs
 Assets/Scripts/GameManager.cs
+Assets/Scripts/Projectile.cs
 Assets/Scripts/Singleton.cs
+Assets/Scripts/Tower/Tower.cs
 Assets/Scripts/Tower/TowerBtn.cs
 Assets/Scripts/TowerManager.cs
 -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
